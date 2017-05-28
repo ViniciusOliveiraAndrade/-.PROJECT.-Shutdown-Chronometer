@@ -12,10 +12,12 @@ public class Time {
 
 	public static void setTime(String Hour, String Minute, String Second){
 		int t = convert(Hour, Minute, Second);
+		System.out.println(OS);
 		switch (OS){
 		case "linux": {
 			try {
 				p = Runtime.getRuntime().exec("shutdown -h +"+ t);
+				JOptionPane.showMessageDialog(null, "O computador desligaram em "+t+" Minutos");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Erro,\nNão foi possivel iniciar o processo de desligamento");
@@ -26,6 +28,7 @@ public class Time {
 		default:{
 			try {
 				p = Runtime.getRuntime().exec("shutdown -s -t "+ t);
+				JOptionPane.showMessageDialog(null, "O computador desligaram em "+t+" Segundos");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Erro,\nNão foi possivel iniciar o processo de desligamento");
@@ -40,6 +43,7 @@ public class Time {
 		case "linux": {
 			try {
 				p = Runtime.getRuntime().exec("shutdown -c");
+				JOptionPane.showMessageDialog(null, "Cancelamento concluido");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Erro,\nNão foi possivel Cancelar");
@@ -50,6 +54,7 @@ public class Time {
 		default:{
 			try {
 				p = Runtime.getRuntime().exec("shutdown -a");
+				JOptionPane.showMessageDialog(null, "Cancelamento concluido");
 			} catch (IOException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Erro,\nNão foi possivel Cancelar");
@@ -79,8 +84,11 @@ public class Time {
 					s = s / 60;
 				}else if((s >= 45)&&(s < 60)){
 					s = 1;
-					
-				}
+				
+				}else {s = 0;}
+			}
+			if((h==0)&&(m==0)&&(s==0)){
+				m=1;
 			}
 
 			time = h + m + s;
@@ -97,7 +105,9 @@ public class Time {
 			if (!Second.isEmpty()){
 				s =  Integer.parseInt(Second);
 			}
-			
+			if((h==0)&&(m==0)&&(s==0)){
+				s = 60;
+			}
 			time = (h * 3600) + (m * 60) + s;
 			break;
 		}
