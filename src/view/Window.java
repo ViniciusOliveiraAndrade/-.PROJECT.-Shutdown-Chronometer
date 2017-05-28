@@ -106,34 +106,16 @@ public class Window extends JFrame{
 		setVisible(true);
 	}
 
-	public int getHoursField() {
-		int hours;
-		if(hoursField.getText().isEmpty()){
-			hours = 0;
-		}else{
-		hours = Integer.parseInt(hoursField.getText());
-		}
-		return hours;
+	public JTextField getHoursField() {
+		return hoursField;
 	}
 
-	public int getMinutesField() {
-		int minutes;
-		if(minutesField.getText().isEmpty()){
-			minutes = 0;
-		}else{
-			minutes = Integer.parseInt(minutesField.getText());
-		}
-		return minutes;
+	public JTextField getMinutesField() {
+		return minutesField;
 	}
 
-	public int getSecondsField() {
-		int seconds;
-		if(secondsField.getText().isEmpty()){
-		seconds = 0;
-		}else{
-		seconds = Integer.parseInt(secondsField.getText());
-		}
-		return seconds;
+	public JTextField getSecondsField() {
+		return secondsField;
 	}
 
 	public JButton getCancelButton() {

@@ -4,10 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 
-import javax.swing.JOptionPane;
-
+import model.Time;
 import view.Window;
 
 public class Control implements ActionListener{
@@ -31,47 +29,15 @@ public class Control implements ActionListener{
 		return keyAdapter;
 	}
 
-
-	@SuppressWarnings("unused")
-	public void start(){
-		int hours = window.getHoursField();
-		int minutes = window.getMinutesField();
-		int seconds = window.getSecondsField();
-
-		int time = seconds+ (minutes * 60)+ (hours * 3600);
-
-
-		try {
-			Process p = Runtime.getRuntime().exec("shutdown -s -t "+ time);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-			JOptionPane.showMessageDialog(window, "Não foi possivel Cancelar");
-		}
-
-
-
-	}
-
-
-	@SuppressWarnings("unused")
-	public void cancel(){
-		try {
-			Process p = Runtime.getRuntime().exec("shutdown -a");
-		} catch (IOException e1) {
-			e1.printStackTrace();
-			JOptionPane.showMessageDialog(window, "Não foi possivel Cancelar");
-		}
-	}
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == window.getStartButton()){start();}
+		if (e.getSource() == window.getStartButton()){
+			Time.setTime(window.getHoursField().getText(),window.getMinutesField().getText(),window.getSecondsField().getText());
+			}
 
-
-		if (e.getSource() == window.getCancelButton()){cancel();}
-
-
-
-
+		if (e.getSource() == window.getCancelButton()){
+			Time.cancelTimer();
+		}
 	}
 
 }
