@@ -73,7 +73,7 @@ public class Time {
 		switch (OS){
 		case "linux": {
 			if (!Hour.isEmpty()){
-				h = (Integer.parseInt(Hour) / 60);
+				h = (Integer.parseInt(Hour) * 60);
 			}	
 			if (!Minute.isEmpty()){
 				m =  Integer.parseInt(Minute);
