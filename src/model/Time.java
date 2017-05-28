@@ -15,7 +15,7 @@ public class Time {
 		switch (OS){
 		case "linux": {
 			try {
-				p = Runtime.getRuntime().exec("shutdown -s -t "+ t);
+				p = Runtime.getRuntime().exec("shutdown -h +"+ t);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Erro,\nNão foi possivel iniciar o processo de desligamento");
