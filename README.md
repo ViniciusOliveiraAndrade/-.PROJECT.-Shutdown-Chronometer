@@ -2,12 +2,12 @@
 
 ## Requirements
 
-This project needs the Java 7 onwards.
+This project needs the Java 7 onward.
 
-## Introduciont
+## Introduction
 
-Using the Shutdown-Chronometer you can shedule in hours. minutes or seconds to when you machine has to shutdown.
+Using the Shutdown-Chronometer you can schedule in hours, minutes or seconds to when your machine has to shutdown.
 
 <img src="home.png"/>
 
-It works for Windows and Linux.
+It works for Windows and Linux platform.
